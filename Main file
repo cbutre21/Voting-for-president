@@ -1,0 +1,61 @@
+package main
+
+import (
+  "bufio"
+  "fmt"
+  "os"
+  "strings"
+)
+
+func F1()string {
+	return ("Thank you for voting for our glorious candidate Donald Dump")
+}
+
+func F2()string {
+	return ("Thank you for voting for the supreme candidate Killary Hilton")
+}
+
+func F3()string {
+	return ("Thank you for voting for the ultimate candidate Bernars Sandies")
+}
+
+func F4()string {
+	return ("Thank you for voting for thine flabbergasting leader Octavia Accasio Cartez")
+}
+
+func main() {
+
+  reader := bufio.NewReader(os.Stdin)
+  fmt.Println("Who do you want to vote for:")
+  fmt.Println("to vote for Donald Dump press 1")
+  fmt.Println("to vote for Killary Hilton press 2")
+  fmt.Println("to vote for Bernars Sandies press 3")
+  fmt.Println("to vote for Octavia Accasio Cartez press 4")
+  fmt.Println("---------------------")
+
+  for {
+    fmt.Print("I vote for candidate number ")
+    text, _ := reader.ReadString('\n')
+    // convert CRLF to LF
+    text = strings.Replace(text, "\r\n", "", -1)
+
+    if strings.Compare("1", text) == 0 {
+		fmt.Println(F1())
+		os.Exit(1)
+	}
+	if strings.Compare("2", text) == 0 {
+		fmt.Println(F2())
+		os.Exit(1)
+	}
+	if strings.Compare("3", text) == 0 {
+		fmt.Println(F3())
+		os.Exit(1)
+	} 
+	if strings.Compare("4", text) == 0 {
+		fmt.Println(F4())
+		os.Exit(1)
+	}
+
+  }
+
+}
